@@ -25,3 +25,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+I built this application with the help of the following tutorial: https://www.youtube.com/watch?v=psZXU8PTAS8. However I did switch the API used to WeatherAPI.com utilizing RapidAPI. I also changed the data displayed from the metric system to imperial, and I switched out some of the displayed data to better fit a US customer base. 
