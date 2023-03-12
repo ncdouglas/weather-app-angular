@@ -1,4 +1,67 @@
-<div class="container">
+<div class="search">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input type="text" placeholder="Serch city" name="city" [(ngModel)]="cityName">
+  </form>
+</div>
+
+<div class="container" *ngIf = "weatherData">
+  <div class="upper-data">
+    <img src="../assets/day.png" *ngIf="weatherData.current.temp_f > 32">
+    <img src="../assets/night.png" *ngIf="weatherData.current.temp_f <= 32">
+
+    <div class="weather-data">
+      <div class="location">{{ weatherData.location.name }}</div>
+      <div class="temperature">{{ weatherData.current.temp_f | number: '1.0-0'}}°F</div>
+    </div>
+  </div>
+
+  <div class="lower-data">
+    <div class="more-info-label">
+      More Information
+    </div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/cloud.png">
+          <span>Cloud Cover</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.current.cloud }}%
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/precipitation.png">
+          <span>Precipitation</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.current.precip_in }} in
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/humidity.png">
+          <span>Humidity</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.current.humidity }}%
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/wind.png">
+          <span>Wind</span>
+        </div>
+        <div class="info-block-value">
+          {{weatherData.current.wind_mph}} mph
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- <div class="container">
   <div class="upper-data">
     <img src="../assets/day.png" *ngIf="14 > 15">
     <img src="../assets/night.png" *ngIf="14 <= 15">
@@ -50,9 +113,9 @@
           11 mph
         </div>
       </div>
-    </div>
+    </div> 
 
   </div>
-</div>
+</div> !-->
 
 <router-outlet></router-outlet>
